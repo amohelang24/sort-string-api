@@ -11,8 +11,11 @@ app.post('/api/sort-string', (req, res) => {
     return res.status(400).json({ error: 'Input must be a string.' });
   }
 
-  const sorted = data.split('').sort().join('');
-  res.json({ word: sorted });
+  // Step 3 & 4: convert to array of characters and sort
+  const sortedChars = data.split('').sort();
+
+  // Step 5: return the sorted characters as an array in JSON
+  res.json({ word: sortedChars });
 });
 
 app.listen(port, () => {
